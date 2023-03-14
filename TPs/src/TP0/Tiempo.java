@@ -1,52 +1,36 @@
 package TP0;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+//LocalDate por Date. 
 public class Tiempo {
 
-	private Date fecha;
+	private LocalDate fecha;
 
-	
 	public Tiempo() {
 		super();
 		this.fecha = fechaActual();
 	}
-	
-	private Date fechaActual()
-	{  
-		return(Calendar.getInstance().getTime());
-	}
-	
-	public Date getFecha()
-	{
-		return(this.fecha);
-	}
-	
-	private void impirmirFecha(String format)
-	{
-		String pattern = format;
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		String date = simpleDateFormat.format(fechaActual());
-		System.out.println(date);
+
+	private LocalDate fechaActual() {
+		return (LocalDate.now());
 	}
 
-	public void verFechaCompleta()
-	{
-		String pattern = "EEEEE dd MMMM yyyy";
-		impirmirFecha(pattern);
-		
+	public void verFechaCompleta() {
+		System.out.println(DateTimeFormatter.ofPattern("dd-MM-yyyy").format(fecha));
+
 	}
-	public void verFechaCorta()
-	{
-		String pattern = "dd/MM/yyyy";
-		impirmirFecha(pattern);
+
+	public void verFechaCorta() {
+		System.out.println(DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy ").format(fecha));
 	}
-	
+
 	/*
-	 * Luego, implemente una clase Tiempo y una clase Main (la cual instancia y utiliza la clase
-Tiempo), que impriman por consola (sysout), la fecha/hora de hoy en dos formatos diferentes:
-Largo, del tipo “Lunes 3 de Abril de 2020”. Y otro en formato corto del tipo: “03/04/2020”
+	 * Luego, implemente una clase Tiempo y una clase Main (la cual instancia y
+	 * utiliza la clase Tiempo), que impriman por consola (sysout), la fecha/hora de
+	 * hoy en dos formatos diferentes: Largo, del tipo “Lunes 3 de Abril de 2020”. Y
+	 * otro en formato corto del tipo: “03/04/2020”
+	 * 
 	 */
 }
