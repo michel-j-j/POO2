@@ -6,10 +6,10 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-public class TestPunto1 {
+public class Punto1 {
 
 	@Test
-	public void inscripcionFueraDeFecha() {
+	public void inscripcionFueraDeFecha() throws Exception {
 		LocalDate fechaInicio = LocalDate.of(2023, 3, 10);
 		LocalDate fechaFin = LocalDate.of(2023, 3, 14);
 
@@ -24,7 +24,7 @@ public class TestPunto1 {
 	}
 
 	@Test
-	public void inscripcionEnFecha() {
+	public void inscripcionEnFecha() throws Exception {
 		LocalDate fechaInicio = LocalDate.of(2023, 3, 14);
 		LocalDate fechaFin = LocalDate.of(2023, 3, 20);
 
@@ -39,7 +39,7 @@ public class TestPunto1 {
 	}
 
 	@Test
-	public void inscripcionEnElPrimerDia() {
+	public void inscripcionEnElPrimerDia() throws Exception {
 		LocalDate fechaInicio = LocalDate.now();
 		LocalDate fechaFin = LocalDate.of(2023, 3, 20);
 

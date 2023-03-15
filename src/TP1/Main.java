@@ -4,16 +4,16 @@ import java.time.LocalDate;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		LocalDate fechaInicio = LocalDate.now();
 		LocalDate fechaFin = LocalDate.of(2023, 3, 20);
 
 		Concurso concurso = new Concurso(fechaInicio, fechaFin);
 
-		Participante Juan = new Participante("Juan", 0);
-		Juan.inscribirse(concurso);
-		Juan.verPuntos();
+		Participante juan = new Participante("Juan", 0);
+		juan.inscribirse(concurso);
+		juan.verPuntos();
 
 		////////////////////////////////////////////////////////
 
@@ -22,9 +22,9 @@ public class Main {
 
 		Concurso concurso2 = new Concurso(fechaInicio2, fechaFin2);
 
-		Participante Pedro = new Participante("Pedro", 0);
-		Pedro.inscribirse(concurso2);
-		Pedro.verPuntos();
+		Participante pedro = new Participante("Pedro", 0);
+		pedro.inscribirse(concurso2);
+		pedro.verPuntos();
 
 	}
 

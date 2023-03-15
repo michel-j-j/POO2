@@ -16,22 +16,22 @@ public class Concurso {
 		this.participantes = new ArrayList<Participante>();
 	}
 
-	private Boolean fechaHabil() {
+	private Boolean fechaHabil() throws Exception {
 		LocalDate hoy = LocalDate.now();
 		if ((hoy.isAfter(fechaInicio) || hoy.equals(fechaInicio)) && hoy.isBefore(fechaFin)) {
-			return (true);
+			return true;
 		} else {
-			System.out.println("Fuera de fecha!");
-			return (false);
+			throw new Exception("Fuera de fecha!");
+
 		}
 	}
 
 	private Boolean primerDia() {
 		LocalDate hoy = LocalDate.now();
-		return (fechaInicio.equals(hoy));
+		return fechaInicio.equals(hoy);
 	}
 
-	public void agregarParticipante(Participante participante) {
+	public void agregarParticipante(Participante participante) throws Exception {
 		if (!estaInscripto(participante) && fechaHabil()) {
 			if (primerDia())
 				participante.sumarPuntos(10);

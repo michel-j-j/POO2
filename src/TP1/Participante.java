@@ -14,7 +14,7 @@ public class Participante {
 		this.punto += punto;
 	}
 
-	public String obtenerNombre() {
+	private String obtenerNombre() {
 		return (this.nombre);
 	}
 
@@ -26,7 +26,7 @@ public class Participante {
 		System.out.println("La cantidad de puntos de " + obtenerNombre() + " es de: " + this.punto);
 	}
 
-	public void inscribirse(Concurso concurso) {
+	public void inscribirse(Concurso concurso) throws Exception {
 		if (this.concurso == null) {
 			this.concurso = concurso;
 			concurso.agregarParticipante(this);
