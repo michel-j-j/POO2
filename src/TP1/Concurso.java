@@ -12,7 +12,7 @@ public class Concurso {
 
 	private Boolean fechaHabil() {
 		LocalDate hoy = LocalDate.now();
-		if ((hoy.isAfter(fechaInicio)) && (hoy.isBefore(fechaFin))) {
+		if ((hoy.isAfter(fechaInicio) || hoy.equals(fechaInicio)) && hoy.isBefore(fechaFin)) {
 			return (true);
 		} else {
 			System.out.println("Fuera de fecha!");
@@ -41,6 +41,7 @@ public class Concurso {
 	}
 
 	private Boolean estaInscripto(Participante participante) {
+
 		return (this.participantes.stream().anyMatch(p -> participante.equals(p)));
 	}
 
