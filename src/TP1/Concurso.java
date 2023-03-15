@@ -10,6 +10,12 @@ public class Concurso {
 	private LocalDate fechaFin;
 	private List<Participante> participantes;
 
+	public Concurso(LocalDate fechaInicio, LocalDate fechaFin) {
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.participantes = new ArrayList<Participante>();
+	}
+
 	private Boolean fechaHabil() {
 		LocalDate hoy = LocalDate.now();
 		if ((hoy.isAfter(fechaInicio) || hoy.equals(fechaInicio)) && hoy.isBefore(fechaFin)) {
@@ -23,12 +29,6 @@ public class Concurso {
 	private Boolean primerDia() {
 		LocalDate hoy = LocalDate.now();
 		return (fechaInicio.equals(hoy));
-	}
-
-	public Concurso(LocalDate fechaInicio, LocalDate fechaFin) {
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.participantes = new ArrayList<Participante>();
 	}
 
 	public void agregarParticipante(Participante participante) {

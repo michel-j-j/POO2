@@ -23,7 +23,7 @@ public class Participante {
 	}
 
 	public void verPuntos() {
-		System.out.println("La cantidad de puntos de " + this.nombre + " es de: " + this.punto);
+		System.out.println("La cantidad de puntos de " + obtenerNombre() + " es de: " + this.punto);
 	}
 
 	public void inscribirse(Concurso concurso) {

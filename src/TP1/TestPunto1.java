@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-public class ClassTesting {
+public class TestPunto1 {
 
 	@Test
 	public void inscripcionFueraDeFecha() {
@@ -18,12 +18,28 @@ public class ClassTesting {
 		Participante Juan = new Participante("Juan", 0);
 
 		Juan.inscribirse(concurso);
+		Juan.verPuntos();
 
 		assertEquals(0, Juan.obtenerPuntos());
 	}
 
 	@Test
 	public void inscripcionEnFecha() {
+		LocalDate fechaInicio = LocalDate.of(2023, 3, 14);
+		LocalDate fechaFin = LocalDate.of(2023, 3, 20);
+
+		Concurso concurso = new Concurso(fechaInicio, fechaFin);
+
+		Participante Juan = new Participante("Juan", 0);
+
+		Juan.inscribirse(concurso);
+		Juan.verPuntos();
+
+		assertEquals(0, Juan.obtenerPuntos());
+	}
+
+	@Test
+	public void inscripcionEnElPrimerDia() {
 		LocalDate fechaInicio = LocalDate.now();
 		LocalDate fechaFin = LocalDate.of(2023, 3, 20);
 
@@ -32,6 +48,8 @@ public class ClassTesting {
 		Participante Juan = new Participante("Juan", 0);
 
 		Juan.inscribirse(concurso);
+
+		Juan.verPuntos();
 
 		assertEquals(10, Juan.obtenerPuntos());
 	}
