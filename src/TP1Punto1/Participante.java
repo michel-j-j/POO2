@@ -1,4 +1,4 @@
-package TP1;
+package TP1Punto1;
 
 public class Participante {
 	private String nombre;
