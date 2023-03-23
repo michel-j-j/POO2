@@ -8,7 +8,8 @@ import org.junit.Test;
 
 public class Punto2 {
 	@Test
-	public void calcularCostoConTarjetaVisa() {
+	public void calcularCostoConTarjetaVisa() { // Verifican que el codigo no se rompa cuando se agrega un
+												// requerimiento.
 		try {
 			Tarjeta tarjetaVisa = new TarjetaVisa((float) 14340, (float) 3);
 
@@ -38,6 +39,7 @@ public class Punto2 {
 			mesa.abonar(comensal);
 
 			Ticket ticket = mesa.obtenerTicket();
+
 			System.out.println("Importe total: " + ticket.total());
 			System.out.println("Propina total: " + ticket.propina());
 			System.out.println("Descuento total: " + ticket.descuento());
