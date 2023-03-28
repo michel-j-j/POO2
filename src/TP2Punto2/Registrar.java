@@ -1,4 +1,4 @@
-package TP2Punto1;
+package TP2Punto2;
 
 import java.io.IOException;
 import java.time.LocalDate;

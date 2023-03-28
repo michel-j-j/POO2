@@ -10,9 +10,9 @@ public class Concurso { // RunnTimeException
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	private List<Participante> participantes;
-	private Registrar planilla;
+	private TP2Punto2.Registrar planilla;
 
-	public Concurso(LocalDate fechaInicio, LocalDate fechaFin, Registrar planilla, Integer id) {
+	public Concurso(LocalDate fechaInicio, LocalDate fechaFin, TP2Punto2.Registrar planilla, Integer id) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.participantes = new ArrayList<Participante>();

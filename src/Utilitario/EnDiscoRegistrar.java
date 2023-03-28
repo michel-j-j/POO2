@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.time.LocalDate;
 
-import TP2Punto1.Registrar;
+import TP2Punto2.Registrar;
 
 public class EnDiscoRegistrar implements Registrar {
 
@@ -20,17 +20,36 @@ public class EnDiscoRegistrar implements Registrar {
 
 	@Override
 	public void registrarParticipante(LocalDate fecha, Integer idParticipante, Integer idConcurso) throws IOException {
+		try {
+			escribirEnDisco(fecha + " || " + idParticipante + " || " + idConcurso);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	private void escribirEnDisco(String txt) throws IOException {
 		FileOutputStream f;
 		try {
 			// C:\\Users\\michi\\OneDrive\\Documentos\\txt\\archivo.txt
 
-			FileOutputStream is = new FileOutputStream(
-					"C:\\\\Users\\\\michi\\\\OneDrive\\\\Documentos\\\\txt\\\\archivo.txt");
+			FileOutputStream is = new FileOutputStream(this.dir);
 			OutputStreamWriter osw = new OutputStreamWriter(is);
 			Writer w = new BufferedWriter(osw);
-			w.write(fecha + " || " + idParticipante + " || " + idConcurso);
+			w.write(txt);
 			w.close();
 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void registarMesa(LocalDate fecha, Float importeTotal) throws IOException {
+		try {
+			escribirEnDisco(fecha + " || " + importeTotal);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
