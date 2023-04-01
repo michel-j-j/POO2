@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Properties;
 
+import com.mysql.jdbc.CommunicationsException;
 import com.mysql.jdbc.Statement;
 
 public class MesaJDBC {
@@ -36,6 +37,8 @@ public class MesaJDBC {
 				System.out.println("Error al actualizar");
 			}
 
+		} catch (CommunicationsException e) {
+			System.out.println("Falta de conexion con la base"); // Exep
 		} catch (SQLException e) {
 			System.out.println("Error al procesar consulta" + e);
 

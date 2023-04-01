@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import TP2Punto2.Enviar;
+
 public class Concurso { // RunnTimeException
 
 	private Integer id;
@@ -11,13 +13,17 @@ public class Concurso { // RunnTimeException
 	private LocalDate fechaFin;
 	private List<Participante> participantes;
 	private TP2Punto2.Registrar planilla;
+	private Enviar notificar;
 
-	public Concurso(LocalDate fechaInicio, LocalDate fechaFin, TP2Punto2.Registrar planilla, Integer id) {
+	public Concurso(LocalDate fechaInicio, LocalDate fechaFin, TP2Punto2.Registrar planilla, Enviar notificar,
+			Integer id) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.participantes = new ArrayList<Participante>();
 		this.planilla = planilla;
 		this.id = id;
+		this.notificar = notificar;
+
 	}
 
 	private Boolean fechaHabil() throws Exception {
@@ -45,7 +51,11 @@ public class Concurso { // RunnTimeException
 				participante.sumarPuntos(10);
 
 			this.participantes.add(participante);
-			this.planilla.registrarParticipante(LocalDate.now(), participante.obtenerId(), this.obtenerId());
+			// Registrar
+			// this.planilla.registrarParticipante(LocalDate.now(),
+			// participante.obtenerId(), this.obtenerId());
+			this.notificar.notificarConcurso("Concurso:" + this.obtenerId(),
+					"Se cargo el participante " + participante.obtenerId() + " en la fecha " + LocalDate.now());
 		}
 
 	}

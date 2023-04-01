@@ -16,20 +16,12 @@ public class Participante {
 		this.punto += punto;
 	}
 
-	private String obtenerNombre() {
-		return (this.nombre);
-	}
-
 	public Integer obtenerId() {
 		return this.id;
 	}
 
 	public Integer obtenerPuntos() {
 		return (this.punto);
-	}
-
-	public void verPuntos() {
-		System.out.println("La cantidad de puntos de " + obtenerNombre() + " es de: " + this.punto);
 	}
 
 	public void inscribirse(Concurso concurso) throws Exception {

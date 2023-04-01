@@ -41,7 +41,10 @@ public class Mesa {
 			Float descuento = comensal.descuento();
 			importeMesa = comensal.pagar(pedido, propinaBase);
 			Ticket ticket = new Ticket(importeMesa, propinaBase, descuento);
-			planilla.registarMesa(LocalDate.now(), importeMesa);
+
+			// Registrar
+			this.planilla.registarMesa(LocalDate.now(), importeMesa);
+
 			cargarTicket(ticket);
 			cerrarMesa();
 		} else {
