@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import TP1Punto2.Bebida;
-import TP1Punto2.Comensal;
-import TP1Punto2.Mesa;
-import TP1Punto2.Pedido;
-import TP1Punto2.Plato;
-import TP1Punto2.Tarjeta;
-import TP1Punto2.TarjetaComarcaPlus;
-import TP1Punto2.TarjetaMasterCard;
-import TP1Punto2.TarjetaVisa;
-import TP1Punto2.Ticket;
+import tp1punto2.Bebida;
+import tp1punto2.Comensal;
+import tp1punto2.Mesa;
+import tp1punto2.Pedido;
+import tp1punto2.Plato;
+import tp1punto2.Tarjeta;
+import tp1punto2.TarjetaComarcaPlus;
+import tp1punto2.TarjetaMasterCard;
+import tp1punto2.TarjetaVisa;
+import tp1punto2.Ticket;
 
 public class TP1Punto2 {
 	@Test

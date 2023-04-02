@@ -6,8 +6,8 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import TP1Punto1.Concurso;
-import TP1Punto1.Participante;
+import tp1punto1.Concurso;
+import tp1punto1.Participante;
 
 public class TP1Punto1 {
 

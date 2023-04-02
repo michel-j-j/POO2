@@ -6,11 +6,11 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import TP2Punto1.Concurso;
-import TP2Punto1.Participante;
-import TP2Punto2.Enviar;
-import Utilitario.EnBaseDeDatosRegistrar;
-import Utilitario.EnEmailFake;
+import tp2punto1.Concurso;
+import tp2punto1.Participante;
+import tp2punto2.Enviar;
+import utilitario.EnBaseDeDatosRegistrar;
+import utilitario.EnEmailFake;
 
 public class TP2Punto5 {
 
@@ -23,7 +23,7 @@ public class TP2Punto5 {
 		// EnDiscoRegistrar("C:\\Users\\michi\\OneDrive\\Escritorio");
 
 		// Punto 3
-		TP2Punto2.Registrar registar = new EnBaseDeDatosRegistrar();
+		tp2punto2.Registrar registar = new EnBaseDeDatosRegistrar();
 		// Punto 4
 		// Enviar notificar = new EnEmail("from@example.com", "tom@example.com",
 		// "b78c9f4878db7f", "b4f74a52b601e4",
