@@ -2,6 +2,7 @@ package TP2Punto2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Pedido {
 	private List<Plato> platos;
@@ -9,28 +10,21 @@ public class Pedido {
 	private Float importeTotal;
 
 	Pedido(ArrayList<Plato> platos, ArrayList<Bebida> bebidas) {
-		this.platos = platos;
-		this.bebidas = bebidas;
+		this.platos = Objects.requireNonNull(platos);
+		this.bebidas = Objects.requireNonNull(bebidas);
 	}
 
 	float calcularImporteBebida() {
-		float total = 0;
-		for (Plato plato : platos) {
-			total += plato.obtenerPrecio();
-		}
-		return total;
+		return (float) bebidas.stream().mapToDouble(Bebida::obtenerPrecio).sum();
+
 	}
 
 	float calcularImportePlato() {
-		float total = 0;
-		for (Bebida bebida : bebidas) {
-			total += bebida.obtenerPrecio();
-		}
-		return total;
+		return (float) platos.stream().mapToDouble(Plato::obtenerPrecio).sum();
 	}
 
 	void agregarImporteTotal(Float importeTotal) {
-		this.importeTotal = importeTotal;
+		this.importeTotal = Objects.requireNonNull(importeTotal);
 	}
 
 	float obtenerImporteTotla() {

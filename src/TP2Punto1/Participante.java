@@ -1,5 +1,7 @@
 package TP2Punto1;
 
+import java.util.Objects;
+
 public class Participante {
 	private Integer id;
 	private String nombre;
@@ -7,9 +9,9 @@ public class Participante {
 	private Concurso concurso = null;
 
 	public Participante(String nombre, Integer punto, Integer id) {
-		this.nombre = nombre;
-		this.punto = punto;
-		this.id = id;
+		this.nombre = Objects.requireNonNull(nombre);
+		this.punto = Objects.requireNonNull(punto);
+		this.id = Objects.requireNonNull(id);
 	}
 
 	public void sumarPuntos(Integer punto) {
@@ -25,12 +27,10 @@ public class Participante {
 	}
 
 	public void inscribirse(Concurso concurso) throws Exception {
-		if (this.concurso == null) {
+		if (this.concurso == null)
 			this.concurso = concurso;
-			concurso.agregarParticipante(this);
-		} else {
-			concurso.agregarParticipante(this);
-		}
+
+		concurso.agregarParticipante(this);
 
 	}
 }

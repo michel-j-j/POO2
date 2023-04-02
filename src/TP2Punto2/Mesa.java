@@ -3,6 +3,7 @@ package TP2Punto2;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Mesa {
 	private List<Comensal> comensales;
@@ -20,15 +21,14 @@ public class Mesa {
 
 	public Mesa(ArrayList<Comensal> comensales, Integer capacidad, Float propinaBase, Registrar planilla)
 			throws Exception {
-		if (validar(comensales, capacidad)) { // Revisar este codigo. Cuando se de la clase de cleancode
-			this.comensales = comensales;
-			this.capacidad = capacidad;
-			this.propinaBase = propinaBase;
-			this.planilla = planilla;
-			this.mesaEnUso = true;
-		} else {
+		if (!validar(comensales, capacidad))
 			throw new Exception("cantidad de comensales exede la capacidad de la mesa!");
-		}
+
+		this.comensales = Objects.requireNonNull(comensales);
+		this.capacidad = Objects.requireNonNull(capacidad);
+		this.propinaBase = Objects.requireNonNull(propinaBase);
+		this.planilla = Objects.requireNonNull(planilla);
+		this.mesaEnUso = true;
 
 	}
 
@@ -37,19 +37,19 @@ public class Mesa {
 	}
 
 	public void abonar(Comensal comensal) throws Exception { // Vamos a suponer que paga un solo comensal.
-		if (estaEnLaMesa(comensal)) {
-			Float descuento = comensal.descuento();
-			importeMesa = comensal.pagar(pedido, propinaBase);
-			Ticket ticket = new Ticket(importeMesa, propinaBase, descuento);
-
-			// Registrar
-			this.planilla.registarMesa(LocalDate.now(), importeMesa);
-
-			cargarTicket(ticket);
-			cerrarMesa();
-		} else {
+		if (!estaEnLaMesa(comensal))
 			throw new Exception("el comensal no corresponde a esta mesa.");
-		}
+
+		Float descuento = comensal.descuento();
+		importeMesa = comensal.pagar(pedido, propinaBase);
+		Ticket ticket = new Ticket(importeMesa, propinaBase, descuento);
+
+		// Registrar
+		this.planilla.registarMesa(LocalDate.now(), importeMesa);
+
+		cargarTicket(ticket);
+		cerrarMesa();
+
 	}
 
 	private void cargarTicket(Ticket ticket) {

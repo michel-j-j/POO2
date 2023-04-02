@@ -1,4 +1,4 @@
-package TP1Punto2;
+package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,7 +6,18 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class Punto2 {
+import TP1Punto2.Bebida;
+import TP1Punto2.Comensal;
+import TP1Punto2.Mesa;
+import TP1Punto2.Pedido;
+import TP1Punto2.Plato;
+import TP1Punto2.Tarjeta;
+import TP1Punto2.TarjetaComarcaPlus;
+import TP1Punto2.TarjetaMasterCard;
+import TP1Punto2.TarjetaVisa;
+import TP1Punto2.Ticket;
+
+public class TP1Punto2 {
 	@Test
 	public void calcularCostoConTarjetaVisa() { // Verifican que el codigo no se rompa cuando se agrega un
 												// requerimiento.

@@ -8,7 +8,7 @@ public class Pedido {
 	private List<Bebida> bebidas;
 	private Float importeTotal;
 
-	Pedido(ArrayList<Plato> platos, ArrayList<Bebida> bebidas) {
+	public Pedido(ArrayList<Plato> platos, ArrayList<Bebida> bebidas) {
 		this.platos = platos;
 		this.bebidas = bebidas;
 	}

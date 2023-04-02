@@ -6,13 +6,11 @@ public class Tarjeta {
 	private Float descuento;
 
 	public Tarjeta(Float saldo, Float descuento) throws Exception {
-		if (validar(saldo, descuento)) {
-			this.saldo = saldo;
-			this.descuento = descuento;
+		if (!validar(saldo, descuento))
+			throw new Exception("ingrese valores positivos.");
 
-		} else {
-			throw new Exception("ingrese valores positivos. ");
-		}
+		this.saldo = saldo;
+		this.descuento = descuento;
 	}
 
 	private Boolean validar(Float saldo, Float descuento) {
@@ -31,16 +29,13 @@ public class Tarjeta {
 	}
 
 	public Float obtenerDescuento() {
-		return (this.descuento);
+		return this.descuento;
 	}
 
 	public Float pagar(Float propina, Float total) {
-		try {
-			propina = propina / 100;
-			total = total * (1 + propina);
-		} catch (Exception e) {
-			System.out.println(e.getMessage() + this.getClass());
-		}
+		propina = propina / 100;
+		total = total * (1 + propina);
+
 		return total;
 	}
 }

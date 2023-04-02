@@ -1,4 +1,4 @@
-package TP1Punto1;
+package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 import TP1Punto1.Concurso;
 import TP1Punto1.Participante;
 
-public class Punto1 {
+public class TP1Punto1 {
 
 	@Test
 	public void inscripcionFueraDeFecha() throws Exception {

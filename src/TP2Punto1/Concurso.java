@@ -3,6 +3,7 @@ package TP2Punto1;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import TP2Punto2.Enviar;
 
@@ -17,23 +18,23 @@ public class Concurso { // RunnTimeException
 
 	public Concurso(LocalDate fechaInicio, LocalDate fechaFin, TP2Punto2.Registrar planilla, Enviar notificar,
 			Integer id) {
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.participantes = new ArrayList<Participante>();
-		this.planilla = planilla;
-		this.id = id;
-		this.notificar = notificar;
 
+		this.fechaInicio = Objects.requireNonNull(fechaInicio);
+		this.fechaFin = Objects.requireNonNull(fechaFin);
+		this.planilla = Objects.requireNonNull(planilla);
+		this.id = Objects.requireNonNull(id);
+		this.notificar = Objects.requireNonNull(notificar);
+
+		this.participantes = new ArrayList<Participante>();
 	}
 
 	private Boolean fechaHabil() throws Exception {
 		LocalDate hoy = LocalDate.now();
-		if ((hoy.isAfter(fechaInicio) || hoy.equals(fechaInicio)) && hoy.isBefore(fechaFin)) {
+		if ((hoy.isAfter(fechaInicio) || hoy.equals(fechaInicio)) && hoy.isBefore(fechaFin))
 			return true;
-		} else {
-			throw new Exception("Fuera de fecha!");
 
-		}
+		throw new Exception("Fuera de fecha!");
+
 	}
 
 	private Boolean primerDia() {
@@ -61,7 +62,6 @@ public class Concurso { // RunnTimeException
 	}
 
 	private Boolean estaInscripto(Participante participante) {
-
 		return this.participantes.stream().anyMatch(p -> participante.equals(p));
 	}
 

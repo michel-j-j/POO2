@@ -1,4 +1,4 @@
-package TP2Punto5;
+package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,7 +12,7 @@ import TP2Punto2.Enviar;
 import Utilitario.EnBaseDeDatosRegistrar;
 import Utilitario.EnEmailFake;
 
-public class Punto5 {
+public class TP2Punto5 {
 
 	@Test
 	public void inscribirseConcursoYNotificar() throws Exception {
