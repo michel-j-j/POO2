@@ -1,4 +1,4 @@
-package utilitario;
+package controlador;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,13 +9,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Properties;
 
+import com.mysql.jdbc.CommunicationsException;
 import com.mysql.jdbc.Statement;
 
-public class ParticipanteJDBC {
-
+public class MesaJDBC {
 	private Properties prop;
 
-	public ParticipanteJDBC(Properties prop) {
+	public MesaJDBC(Properties prop) {
 		this.prop = Objects.requireNonNull(prop);
 	}
 
@@ -24,29 +24,27 @@ public class ParticipanteJDBC {
 				prop.getProperty("password"));
 	}
 
-	public void create(LocalDate fecha, Integer idConcurso, Integer idParticipante) { // TERMINADO
-
+	public void create(LocalDate fecha, Float importeTotal) {
 		try {
 			Connection conn = establecerConexion();
-			PreparedStatement statement = conn.prepareStatement(
-					"INSERT INTO participante(fecha, id_concurso, id_participante) " + " VALUES (?, ?,?)",
+			PreparedStatement statement = conn.prepareStatement("INSERT INTO mesa(fecha, importe) " + " VALUES (?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 
 			Date date = Date.valueOf(fecha);
 
 			statement.setDate(1, date);
-			statement.setInt(2, idConcurso);
-			statement.setInt(3, idParticipante);
+			statement.setFloat(2, importeTotal);
 
 			if (statement.executeUpdate() < 0)
 				throw new RuntimeException("No anduvo");
 
+		} catch (CommunicationsException e) {
+			throw new RuntimeException("Error en la conexion con la base");
 		} catch (SQLException e) {
 			throw new RuntimeException("Error al procesar la consulta");
 
 		} catch (Exception e) {
 			throw new RuntimeException("Error en la creacion del mapa");
 		}
-
 	}
 }

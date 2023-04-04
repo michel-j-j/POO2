@@ -1,8 +1,19 @@
-package tp2punto2;
+package tp2punto3;
 
 import java.util.ArrayList;
 
-import utilitario.EnDiscoRegistrar;
+import tp2punto2.Bebida;
+import tp2punto2.Comensal;
+import tp2punto2.Mesa;
+import tp2punto2.Pedido;
+import tp2punto2.Plato;
+import tp2punto2.Registrar;
+import tp2punto2.Tarjeta;
+import tp2punto2.TarjetaComarcaPlus;
+import tp2punto2.TarjetaMasterCard;
+import tp2punto2.TarjetaVisa;
+import tp2punto2.Ticket;
+import utilitario.EnBaseDeDatosRegistrar;
 
 public class Main {
 
@@ -41,11 +52,11 @@ public class Main {
 
 			Pedido pedido = new Pedido(plato, bebida);
 
-			tp2punto2.Registrar registrar = new EnDiscoRegistrar("C:\\Users\\michi\\OneDrive\\Escritorio");
+			Registrar planilla = new EnBaseDeDatosRegistrar();
 
-			Mesa mesa = new Mesa(comensales, 4, (float) 3.0, registrar);
+			Mesa mesa = new Mesa(comensales, 4, (float) 3.0, planilla);
+
 			mesa.cargarPedido(pedido);
-
 			mesa.abonar(comensal4);
 
 			Ticket ticket = mesa.obtenerTicket();
@@ -55,6 +66,7 @@ public class Main {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
 		}
 	}
 

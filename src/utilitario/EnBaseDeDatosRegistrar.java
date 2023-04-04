@@ -2,6 +2,9 @@ package utilitario;
 
 import java.time.LocalDate;
 
+import controlador.ConnectionManager;
+import controlador.MesaJDBC;
+import controlador.ParticipanteJDBC;
 import tp2punto2.Registrar;
 
 public class EnBaseDeDatosRegistrar implements Registrar {

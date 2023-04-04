@@ -1,4 +1,4 @@
-package utilitario;
+package controlador;
 
 import java.util.Properties;
 import java.util.ResourceBundle;
